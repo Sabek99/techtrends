@@ -1,9 +1,0 @@
-apiVersion: v1
-name: techtrends
-description: Install TechTrends deployment manifests
-keywords:
-  - techtrends
-version: 1.0.0
-maintainers:
-  - name: Mohamed Sabek
-    email: mmsabek99@gmail.com
