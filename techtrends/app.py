@@ -3,11 +3,13 @@ import logging
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 
+db_connection_count = 0
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
 def get_db_connection():
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
+    db_connection_count += 1
     return connection
 
 # Function to get a post using its ID
@@ -40,7 +42,7 @@ def metrics():
     posts = connection.execute('SELECT COUNT(*) FROM posts').fetchone()[0]
     #connections = connection.execute('SELECT COUNT(*) FROM connections')
     response = app.response_class(
-            response=json.dumps({"status":"success","code":200,"data":{"db_connection_count":1, "post_count":posts}}),
+            response=json.dumps({"status":"success","code":200,"data":{"db_connection_count":db_connection_count, "post_count":posts}}),
             status=200,
             mimetype='application/json'
     )
