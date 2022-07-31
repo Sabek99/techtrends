@@ -17,8 +17,7 @@ spec:
     spec:
       imagePullSecrets:
       - name: my-secret
-
-
+      
       containers:
       - image: sirsabek/techtrends:latest
         imagePullPolicy: Always
