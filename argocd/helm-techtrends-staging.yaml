@@ -15,4 +15,3 @@ spec:
     path: helm
     repoURL: https://github.com/Sabek99/techtrends
     targetRevision: HEAD
-    syncPolicy: {}
